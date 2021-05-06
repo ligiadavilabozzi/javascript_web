@@ -79,8 +79,18 @@ function adicionaAoTotal(valor){
  * Só pode ser usado uma vez dentro do escopo. 
  * O var sobrescreve o lado de fora do escopo, por isso usamos let botao of botoes...
  */
-
+//Verificador de pedido
 var formularioPedido = document.forms.pedido;
-formularioPedido.addEventListener('submit', function(){
-    //Validação
-})
+formularioPedido.addEventListener('submit', function(evento){
+   var inputs = formularioPedido.querySelectorAll('input.quantidade'); 
+   var contador = 0; 
+   for (let input of inputs){
+       if (input.value>0){
+           contador++
+       }
+   }; 
+   if (contador ==0){
+       evento.preventDefault();
+       alert("Faça pelo menos 1 pedido de pizza")
+   }
+});
