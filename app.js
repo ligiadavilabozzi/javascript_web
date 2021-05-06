@@ -1,5 +1,5 @@
-//Procurar quantidade
-var input = document.getElementById('quantidade');
+//Procurar quantidade de um ÚNICO ELEMENTO
+//var input = document.getElementById('quantidade');
 
 //palavras não são somadas 
 /* input.vale = 1 + input.value 
@@ -29,12 +29,14 @@ botaoDecrementa.addEventListener('click',decrementa)
 
 function incrementa(){
     
-    input.value++
+    
 
     //pegar o elemento mais próximo (acima)
 var item = botaoIncrementa.closest('.item');
+var input = item.querySelector('.quantidade')   //passamos a classe quantidade
+input.value++
 var preco = pegaPrecoItem(item)
-adicionaAoTotal(preco)ent = preco + Number(elementoTotal.textContent)
+adicionaAoTotal(preco) = preco + Number(elementoTotal.textContent)
 
 }
 
