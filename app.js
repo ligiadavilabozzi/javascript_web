@@ -33,13 +33,7 @@ function incrementa(){
 
     //pegar o elemento mais próximo (acima)
 var item = botaoIncrementa.closest('.item');
-//buscar no elemento item a classa preco-item
-var precoItem = item.querySelector('.preco-item'); 
-
-//no td quantidade tem um value, já no td preco-item, tem um valor entre as tags <td></td> 
-//temos que pegar esse texto) O number na frente converte texto em numero
-var preco = Number(precoItem.textContent) 
-
+var preco = pegaPrecoItem(item)
 //buscar elemento com id total: 
 var elementoTotal = document.querySelector("#total")
 
@@ -51,4 +45,14 @@ elementoTotal.textContent = preco + Number(elementoTotal.textContent)
 
 function decrementa(){
     input.value--
+}
+
+function pegaPrecoItem(item){
+    //buscar no elemento item a classa preco-item
+var precoItem = item.querySelector('.preco-item'); 
+
+//no td quantidade tem um value, já no td preco-item, tem um valor entre as tags <td></td> 
+//temos que pegar esse texto) O number na frente converte texto em numero
+return Number(precoItem.textContent) 
+
 }
