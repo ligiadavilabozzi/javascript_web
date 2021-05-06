@@ -34,11 +34,7 @@ function incrementa(){
     //pegar o elemento mais próximo (acima)
 var item = botaoIncrementa.closest('.item');
 var preco = pegaPrecoItem(item)
-//buscar elemento com id total: 
-var elementoTotal = document.querySelector("#total")
-
-//A partir dele queremos pegar o conteudo e somar com o preço, mas sem apagar o conteúdo dele: 
-elementoTotal.textContent = preco + Number(elementoTotal.textContent)
+adicionaAoTotal(preco)ent = preco + Number(elementoTotal.textContent)
 
 }
 
@@ -55,4 +51,9 @@ var precoItem = item.querySelector('.preco-item');
 //temos que pegar esse texto) O number na frente converte texto em numero
 return Number(precoItem.textContent) 
 
+}
+
+function adicionaAoTotal(valor){
+    var elementoTotal = document.querySelector('#total'); 
+    elementoTotal.textContent = valor + Number(elementoTotal.textContent)
 }
