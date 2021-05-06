@@ -73,3 +73,9 @@ function adicionaAoTotal(valor){
     var elementoTotal = document.querySelector('#total'); 
     elementoTotal.textContent = valor + Number(elementoTotal.textContent)
 }
+
+
+/******OBSERVAÇÃO DO LET
+ * Só pode ser usado uma vez dentro do escopo. 
+ * O var sobrescreve o lado de fora do escopo, por isso usamos let botao of botoes...
+ */
