@@ -44,10 +44,14 @@ adicionaAoTotal(preco) = preco + Number(elementoTotal.textContent)
 function decrementa(){
     var item = botaoDecrementa.closest('.item');
     var input = item.querySelector('.quantidade')
+    
+    //evitar número negativo no pedido
+    if(input.value>0){
     input.value--;
     var preco = pegaPrecoItem(item)
     adicionaAoTotal(-preco)
-
+    }   
+    
 }
 
 function pegaPrecoItem(item){
