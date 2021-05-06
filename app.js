@@ -18,28 +18,29 @@ incrementa();
 */
 //Só queremos executar a função acima ao clicar no botão
 
+
+/***************INCREMENTA**************/
 //Chama o botão incrementa
-var botaoIncrementa = document.querySelector(".btn-incrementa") //#busca pelo id igual o css
-//Chama o botão incrementa
-var botaoDecrementa = document.querySelector(".btn-decrementa")
+var botoesIncrementa = document.querySelectorAll(".btn-incrementa") //só querySelector procura o primeiro, para trazer todos, querySelectorAll
 //chama o botão incremeta ou decrementa e adiciona um clique que retorna a função
-botaoIncrementa.addEventListener('click',incrementa)
-botaoDecrementa.addEventListener('click',decrementa)
+for(let botao of botoesIncrementa){
+    botao.addEventListener('click',incrementa)
 
-
-function incrementa(){
-    
-    
-
+    function incrementa(){
     //pegar o elemento mais próximo (acima)
-var item = botaoIncrementa.closest('.item');
-var input = item.querySelector('.quantidade')   //passamos a classe quantidade
-input.value++
-var preco = pegaPrecoItem(item)
-adicionaAoTotal(preco) = preco + Number(elementoTotal.textContent)
-
+    var item = botao.closest('.item');
+    var input = item.querySelector('.quantidade')   //passamos a classe quantidade
+    input.value++
+    var preco = pegaPrecoItem(item)
+    adicionaAoTotal(preco) = preco + Number(elementoTotal.textContent)
+    }
+    
 }
 
+/*********DECREMENTA*************** */
+//botão decrementa
+var botaoDecrementa = document.querySelector(".btn-decrementa")
+botaoDecrementa.addEventListener('click',decrementa)
 
 function decrementa(){
     var item = botaoDecrementa.closest('.item');
