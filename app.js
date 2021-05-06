@@ -23,54 +23,54 @@ incrementa();
 //Chama o botão incrementa
 var botoesIncrementa = document.querySelectorAll(".btn-incrementa") //só querySelector procura o primeiro, para trazer todos, querySelectorAll
 //chama o botão incremeta ou decrementa e adiciona um clique que retorna a função
-for(let botao of botoesIncrementa){
-    botao.addEventListener('click',incrementa)
+for (let botao of botoesIncrementa) {
+    botao.addEventListener('click', incrementa)
 
-    function incrementa(){
-    //pegar o elemento mais próximo (acima)
-    var item = botao.closest('.item');
-    var input = item.querySelector('.quantidade')   //passamos a classe quantidade
-    input.value++
-    var preco = pegaPrecoItem(item)
-    adicionaAoTotal(preco) = preco + Number(elementoTotal.textContent)
+    function incrementa() {
+        //pegar o elemento mais próximo (acima)
+        var item = botao.closest('.item');
+        var input = item.querySelector('.quantidade') //passamos a classe quantidade
+        input.value++
+        var preco = pegaPrecoItem(item)
+        adicionaAoTotal(preco) = preco + Number(elementoTotal.textContent)
     }
-    
+
 }
 
 /*********DECREMENTA*************** */
 //botão decrementa
 var botoesDecrementa = document.querySelectorAll(".btn-decrementa")
 
-for(let botao of botoesDecrementa){
-    botao.addEventListener('click',decrementa)
+for (let botao of botoesDecrementa) {
+    botao.addEventListener('click', decrementa)
 
-    function decrementa(){
+    function decrementa() {
         var item = botao.closest('.item');
         var input = item.querySelector('.quantidade')
-        
+
         //evitar número negativo no pedido
-        if(input.value>0){
-        input.value--;
-        var preco = pegaPrecoItem(item)
-        adicionaAoTotal(-preco)
-        }   
-        
+        if (input.value > 0) {
+            input.value--;
+            var preco = pegaPrecoItem(item)
+            adicionaAoTotal(-preco)
+        }
+
     }
 }
 
 
-function pegaPrecoItem(item){
+function pegaPrecoItem(item) {
     //buscar no elemento item a classa preco-item
-var precoItem = item.querySelector('.preco-item'); 
+    var precoItem = item.querySelector('.preco-item');
 
-//no td quantidade tem um value, já no td preco-item, tem um valor entre as tags <td></td> 
-//temos que pegar esse texto) O number na frente converte texto em numero
-return Number(precoItem.textContent) 
+    //no td quantidade tem um value, já no td preco-item, tem um valor entre as tags <td></td> 
+    //temos que pegar esse texto) O number na frente converte texto em numero
+    return Number(precoItem.textContent)
 
 }
 
-function adicionaAoTotal(valor){
-    var elementoTotal = document.querySelector('#total'); 
+function adicionaAoTotal(valor) {
+    var elementoTotal = document.querySelector('#total');
     elementoTotal.textContent = valor + Number(elementoTotal.textContent)
 }
 
@@ -79,18 +79,18 @@ function adicionaAoTotal(valor){
  * Só pode ser usado uma vez dentro do escopo. 
  * O var sobrescreve o lado de fora do escopo, por isso usamos let botao of botoes...
  */
-//Verificador de pedido
-var formularioPedido = document.forms.pedido;
-formularioPedido.addEventListener('submit', function(evento){
-   var inputs = formularioPedido.querySelectorAll('input.quantidade'); 
-   var contador = 0; 
-   for (let input of inputs){
-       if (input.value>0){
-           contador++
-       }
-   }; 
-   if (contador ==0){
-       evento.preventDefault();
-       alert("Faça pelo menos 1 pedido de pizza")
-   }
+//Verificador de pedido (se está tudo zerado)
+var formularioPedido = document.forms.pedido; //procura só nos formulários
+formularioPedido.addEventListener('submit', function (event) {
+    var inputs = formularioPedido.querySelectorAll('input.quantidade');
+    var contador = 0;
+    for (let input of inputs) {
+        if (input.value > 0) {
+            contador++
+        }
+    };
+    if (contador == 0) {
+        event.preventDefault(); //o event.preventDefault previne o comportamento padrão
+        alert("Faça pelo menos 1 pedido de pizza")
+    }
 });
