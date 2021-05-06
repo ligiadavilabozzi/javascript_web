@@ -21,7 +21,7 @@ incrementa();
 //Chama o botão incrementa
 var botaoIncrementa = document.querySelector(".btn-incrementa") //#busca pelo id igual o css
 //Chama o botão incrementa
-var botaoDecrementa = document.querySelector(".btn-decremeta")
+var botaoDecrementa = document.querySelector(".btn-decrementa")
 //chama o botão incremeta ou decrementa e adiciona um clique que retorna a função
 botaoIncrementa.addEventListener('click',incrementa)
 botaoDecrementa.addEventListener('click',decrementa)
@@ -42,7 +42,12 @@ adicionaAoTotal(preco) = preco + Number(elementoTotal.textContent)
 
 
 function decrementa(){
-    input.value--
+    var item = botaoDecrementa.closest('.item');
+    var input = item.querySelector('.quantidade')
+    input.value--;
+    var preco = pegaPrecoItem(item)
+    adicionaAoTotal(-preco)
+
 }
 
 function pegaPrecoItem(item){
