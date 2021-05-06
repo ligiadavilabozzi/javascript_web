@@ -20,10 +20,15 @@ incrementa();
 
 //Chamar o botão incrementa
 var botaoIncrementa = document.querySelector(".btn-incrementa") //#busca pelo id igual o css
+var botaoDecrementa = document.querySelector(".btn-decremeta")
 //chama o botão incremeta e adiciona um clique que retorna a função
 botaoIncrementa.addEventListener('click',incrementa)
+botaoDecrementa.addEventListener('click',decrementa)
 function incrementa(){
     
     input.value++
 }
 
+function decrementa(){
+    input.value--
+}
